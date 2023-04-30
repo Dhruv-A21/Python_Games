@@ -3,4 +3,4 @@
 import random
 s=str(random.random())
 s=s[-5:-1]
-print(s)
+print("OTP is:",s)
