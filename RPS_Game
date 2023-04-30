@@ -1,0 +1,145 @@
+#RPS GAME
+
+import random
+import time
+flag=True
+rules="""
+You will be given a choice of 3 things:- Rock, Paper, Scissors
+You have to choose among them only.(Let me repeat among them only.)
+Computer will be then choosing a rondom option among the three and then your choices will fight.
+
+Winner is decided as such:
+Rock Breaks Scissors------------------> Player with Rock wins
+Scissors Cut down the Paper-----------> Player with Scissors wins
+Paper Covers the Rock-----------------> Player with Paper wins
+
+I hope you got it.
+"""
+while(1):
+    op=['Rock','Paper','Scissors']
+    if(flag):
+        flag=False
+        p="Do you want the Rules for the most basic game in the world???"
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02)
+        print()
+        p="Enter 1-Yes or 0-No"
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02)
+        print()
+        n=int(input())
+        if(n==1):
+            for p in rules.splitlines():
+                for c in p:
+                    print(c,end="")
+                    time.sleep(0.02)
+                print()
+        else:
+            p="OK.... Thanks for saving the time..."
+            for c in p:
+                print(c,end="")
+                time.sleep(0.02)
+            print()
+    p="Here are your options:- Rock, Paper, Scissors"
+    for c in p:
+        print(c,end="")
+        time.sleep(0.02)
+    print()
+    Player="abc"
+    while(1):
+        p="Your Choice is:"
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02)
+        Player=input()
+        Player=Player.capitalize()
+        if Player not in op:
+            p="You just had 1 task: Enter from the choices above. You failed that Successfully.Make a choice again."
+            for c in p:
+                print(c,end="")
+                time.sleep(0.02)
+            print()
+        else:
+            break
+    Comp=random.choice(op)
+    res="Tie"
+    if(Comp==Player):
+        res="Tie"
+    elif(Player=="Rock"):
+        if(Comp=="Paper"):
+            res="Comp"
+        else:
+            res="Player"
+    elif(Player=="Paper"):
+        if(Comp=="Rock"):
+            res="Player"
+        else:
+            res="Comp"
+    else:
+        if(Comp=="Rock"):
+            res="Comp"
+        else:
+            res="Player"
+    if(res=="Tie"):
+        p="""Ohh!! It is a tie, as you both chose:"""
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02)
+        for c in Comp:
+            print(c,end="")
+            time.sleep(0.02)
+        print()
+    elif(res=="Comp"):
+        p="""Alas!! You lost."""
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02) 
+        print()
+        p="""Your choice was:"""
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02)
+        for c in Player:
+            print(c,end="")
+            time.sleep(0.02)
+        print()
+        p="""Computer's Choice was:"""
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02)
+        for c in Comp:
+            print(c,end="")
+            time.sleep(0.02)
+        print()
+    else:
+        p="""Congrats!!! You Won."""
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02) 
+        print()
+        p="""Your choice was:"""
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02)
+        for c in Player:
+            print(c,end="")
+            time.sleep(0.02)
+        print()
+        p="""Computer's Choice was:"""
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02)
+        for c in Comp:
+            print(c,end="")
+            time.sleep(0.02)
+        print()
+    p="Do you want to play again?------->   1:Yes or 0: No"
+    for c in p:
+        print(c,end="")
+        time.sleep(0.02)
+    print()
+    n=int(input())
+    if(n==0):
+        break
