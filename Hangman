@@ -1,0 +1,109 @@
+#Hangman
+
+import random
+import time
+
+while(1):
+    l=["   +---+","       |","       |","       |","      ==="]
+
+    e=["   O   |","   |   |","  /|   |","  /|\  |","  /    |","  / \  |"]
+
+    words=["PYTHON","COMPUTER","RHYTHM","POACHING","INVEST"]
+    w=random.choice(words)
+    le=len(w)
+    g=[]
+    for i in range(le):
+        g.append(i)
+    gap=[]
+    for i in range(le//2):
+        temp=random.choice(g)
+        gap.append(temp)
+        g.remove(temp)
+    p="Computer has Chosen a word, Try to find the missing letters:"
+    for c in p:
+        print(c,end="")
+        time.sleep(0.02)
+    print()
+    p="Don't let the Hangman Die:"
+    for c in p:
+        print(c,end="")
+        time.sleep(0.02)
+    print()
+    for p in l:
+        for c in p:
+            print(c,end="")
+            time.sleep(0.02)
+        print()
+    print()
+
+    q=""
+    for i in range(le):
+        if(i in g):
+            q=q+"_"
+        else:
+            q=q+w[i]
+    print(q)
+    print()
+
+    wrong=0
+    while(q!=w):
+        x=input("Enter the letter you want to guess:")
+        if(len(x)>1):
+            print("Guess a single character only")
+            continue
+        if(x not in w):
+            wrong+=1
+
+            p="Ohh! Wrong guess.... This letter is not presentin the word"
+            if(wrong==1):
+                l[1]=e[0]
+            elif(wrong<=4):
+                l[2]=e[wrong-1]
+            elif(wrong<=6):
+                l[3]=e[wrong-1]
+            
+            for p in l:
+                for c in p:
+                    print(c,end="")
+                    time.sleep(0.02)
+                print()
+            print()
+            if(wrong==6):
+                p="Ohh you have lost the game, The Hangman has died.The word was:"
+                for c in p:
+                    print(c,end="")
+                    time.sleep(0.02)
+                print(w)
+                break
+        else:
+            if(x in q):
+                p="You have already guessed this leeter. Try another one."
+                for c in p:
+                    print(c,end="")
+                    time.sleep(0.02)
+                print()
+            else:
+                m=0
+                for i in range(le):
+                    if(x==w[i]):
+                        m=i
+
+                y = list(q)
+                y[m] = x
+                q = "".join(y)
+                p="Yes, Correct Guess!, Here is the updated Word:"
+                for c in p:
+                    print(c,end="")
+                    time.sleep(0.02)
+                print()
+                print(q)
+    else:
+        print("YOU HAVE WON")
+    
+    print("Want to Play again?? 1:YES   or   0:NO")
+    n=int(input())
+    if(n==0):
+        break
+
+
+            
