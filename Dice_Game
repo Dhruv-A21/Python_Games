@@ -1,0 +1,29 @@
+#Dice Game
+
+import random
+import time
+
+while(1):
+    o=str(random.randint(1,6))
+    l="-------"
+    print(l)
+    time.sleep(0.1)
+    p="|     |"
+    print(p)
+    time.sleep(0.1)
+    p="|  "+o+"  |"
+    print(p)
+    time.sleep(0.1)
+    p="|     |"
+    print(p)
+    time.sleep(0.1)
+    print(l)
+    time.sleep(0.1)
+    p="Do you want to Roll the dice again?:----> 1: Yes   or   0:No"
+    for c in p:
+        print(c,end="")
+        time.sleep(0.02)
+    print()
+    n=int(input())
+    if(n==0):
+        break
