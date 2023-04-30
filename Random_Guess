@@ -1,0 +1,43 @@
+#Random Guess
+
+import random
+while(1):
+        x=random.randint(1,10)
+        print("Computer has a number from 1 to 10, Now guess the number")
+        l=[]
+        tries=0
+        while(1):
+            n=int(input("Your Guess:"))
+            print()
+            if(n<1 or n>10):
+                print("Number ranges from 1 to 10, Please be in the limit...Like your Thinking")
+                tries+=1
+            elif(n!=x):
+                tries+=1
+                if(n not in l):
+                    l.append(n)
+                    l=sorted(l)
+                    print("Wrong Guess!!! Try Again... You can do it...Just",10-len(l),"numbers are left")
+                else:
+                    print("Not only you are wrong you are guessing the same number again.")
+                    print("You are a real disgrace man.")
+                    print("Try again...Here are the numbers you have already guessed:")
+                    print(*l)
+            else:
+                tries+=1
+                if(tries>6):
+                    print("Ohh!! Finally you got it...Yes it was",n)
+                    print("It took you just",tries,"tries to get the correct answer")
+                else:
+                    print("Wow!!.. You got it in just",tries,"tries..... Awesome man!")
+                    print("Yes it was",n)
+                break
+            print()
+        print()
+        print("Wanna Play this Guessing Game Again")
+        print("Enter 1-Yes   or   0-No")
+        p=int(input())
+        if(p==1):
+            continue
+        else:
+            break
